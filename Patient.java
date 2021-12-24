@@ -4,7 +4,7 @@ public class Patient {
     private String patientName;
     private int age;
     private char patientSex;
-    private	String patientIllness;
+    private	String DoctorType;
     private float amountForAppointment;
 
     public int getPatientID() {
@@ -39,12 +39,12 @@ public class Patient {
         this.patientSex = patientSex;
     }
 
-    public String getPatientIllness() {
-        return patientIllness;
+    public String getDoctorType() {
+        return DoctorType;
     }
 
-    public void setPatientIllness(String patientIllness) {
-        this.patientIllness = patientIllness;
+    public void setDoctorType(String DoctorType) {
+        this.DoctorType = DoctorType;
     }
 
     public float getAmountForAppointment() {
@@ -55,13 +55,13 @@ public class Patient {
         this.amountForAppointment = amountForAppointment;
     }
 
-    public Patient(int patientID, String patientName, int age, char patientSex, String patientIllness, float amountForAppointment)
+    public Patient(int patientID, String patientName, int age, char patientSex, String DoctorType, float amountForAppointment)
     {
         this.patientID=patientID;
         this.patientName=patientName;
         this.age=age;
         this.patientSex=patientSex;
-        this.patientIllness=patientIllness;
+        this.DoctorType=DoctorType;
         this.amountForAppointment=amountForAppointment;
     }
 }
