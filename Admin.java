@@ -7,7 +7,7 @@ public class Admin {
 
     //data of doctors
     public void doctorsInitialData(){
-<<<<<<< Updated upstream
+
         Doctor d1=new Doctor(1,"Dr. Strange",33,'m',"Surgeon");
         d.add(d1);
         Doctor d2=new Doctor(2,"Dr. Who",77,'m',"Physician");
@@ -18,85 +18,8 @@ public class Admin {
         d.add(d4);
         Doctor d5=new Doctor(5,"Dr.Jessica",36,'f',"Neurologist");
         d.add(d5);
-=======
-        Object[] ob = new Object[5];
-	public void initialize()
-	{
-	 Object[] ob = new Object[5];
-	 ob[0] = "ID";
-	 ob[1] = "Name";
-	 ob[2] = "Speciality";
-	 ob[3] = "Speciality No.";
-	 ob[4] = "Availibility";
 
-	 doclist.add(ob);       
 
-	 ob = new Object[5];
-	 ob[0] = "D101";
-	 ob[1] = "Huzaif";
-	 ob[2] = "Cardiology";
-	 ob[3] = "1";
-	 ob[4] = "1";
-	 doclist.add(ob);
-	 
-	 ob = new Object[5];
-	 ob[0] = "D102";
-	 ob[1] = "Darshan";
-	 ob[2] = "Orthopedic";
-	 ob[3] = "2";
-	 ob[4] = "1";
-	 doclist.add(ob);
-
-	 ob = new Object[5];
-	 ob[0] = "D103";
-	 ob[1] = "Shabbir";
-	 ob[2] = "Oncology";
-	 ob[3] = "3";
-	 ob[4] = "1";
-	 doclist.add(ob);
-
-	 ob = new Object[5];
-	 ob[0] = "D104";
-	 ob[1] = "Kaif";
-	 ob[2] = "Radiology";
-	 ob[3] = "4";
-	 ob[4] = "1";
-	 doclist.add(ob);
-	 
-	 ob = new Object[5];
-	 ob[0] = "D105";
-	 ob[1] = "Shah";
-	 ob[2] = "Cardiology";
-	 ob[3] = "1";
-	 ob[4] = "1";
-	 doclist.add(ob);
-	 
-	 ob = new Object[5];
-	 ob[0] = "D106";
-	 ob[1] = "Moin";
-	 ob[2] = "Orthopedic";
-	 ob[3] = "2";
-	 ob[4] = "1";
-	 doclist.add(ob);
-
-	 ob = new Object[5];
-	 ob[0] = "D107";
-	 ob[1] = "Saad";
-	 ob[2] = "Oncology";
-	 ob[3] = "3";
-	 ob[4] = "1";
-	 doclist.add(ob);
-
-	 ob = new Object[5];
-	 ob[0] = "D108";
-	 ob[1] = "Azeem";
-	 ob[2] = "Radiology";
-	 ob[3] = "4";
-	 ob[4] = "1";
-	 doclist.add(ob);
-	}
-
->>>>>>> Stashed changes
     }
 
     Scanner sc=new Scanner(System.in);
