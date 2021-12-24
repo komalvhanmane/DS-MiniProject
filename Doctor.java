@@ -5,6 +5,7 @@ public class Doctor {
    private char DoctorSex;
    private String DoctorSpeciality;
    private String assignPatient;
+   private Queue<Patient> p;
 
     public Doctor(int doctorID, String doctorName, int age, char doctorSex, String doctorSpeciality, String assignPatient) {
         DoctorID = doctorID;
@@ -13,6 +14,7 @@ public class Doctor {
         DoctorSex = doctorSex;
         DoctorSpeciality = doctorSpeciality;
         this.assignPatient = assignPatient;
+        p=null;
     }
 
     public int getDoctorID() {
