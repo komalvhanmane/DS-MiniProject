@@ -5,15 +5,14 @@ public class Reception
 	int patientID=100;
 public void registerPatient()
 		{
-			Patient pr = new Patient();
+			//Patient pr = new Patient();
 			patientID++;
-			pr.patientID=patientID;
 			System.out.println("Enter Patient name:");
-			pr.patientName = s.nextLine();
+			String patientName = s.nextLine();
 			System.out.println("Enter Patient Age:");
-			pr.age = s.nextInt();
+			int age = s.nextInt();
 			System.out.println("Enter Patient Sex:");
-			pr.patientSex =s.next().charAt(0);
+			char patientSex =s.next().charAt(0);
 			System.out.println("Choose the doctor type:");
 			System.out.println("1:Surgeon");  
 			System.out.println("2:Cardiologist"); 
@@ -21,28 +20,31 @@ public void registerPatient()
 			System.out.println("4:Physician");
 			System.out.println("5:Dermatologist");
 			int ch=s.nextInt();
+			String DoctorType;
 			switch (ch) {
 				case 1:
-					pr.DoctorType="Surgeon";
+					DoctorType="Surgeon";
 					break;
 				case 2:
-					pr.DoctorType="Cardiologist";
+					DoctorType="Cardiologist";
 					break;
 				case 3:
-					pr.DoctorType="Neurologist";
+					DoctorType="Neurologist";
 					break;
 				case 4:
-					pr.DoctorType="Physician";
+					DoctorType="Physician";
 					break;
 				case 5:
-					pr.DoctorType="Dermatologist";
+					DoctorType="Dermatologist";
 					break;	
 				default:
 				    System.out.println("INVALID CHOICE");
+					DoctorType=null;
 					break;
 			}
 			System.out.println("Enter the amount patient needs to pay for appointment:");
-			pr.amountForAppointment = s.nextFloat();
+			Float amountForAppointment = s.nextFloat();
+			Patient pr=new Patient(patientID, patientName, age, patientSex, DoctorType, amountForAppointment);
 		}
 
 public void showappointmentDetails() 
