@@ -93,4 +93,13 @@ public class Admin {
         }
         return -1;
     }
+
+    public int searchDoctor(String DoctorSpeciality){
+        for(int i=0;i<d.size();i++){
+            if(DoctorSpeciality.equals(d.get(i).getDoctorSpeciality())){
+                return i;
+            }
+        }
+        return -1;
+    }
 }
