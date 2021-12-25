@@ -3,9 +3,8 @@ public class Reception
 {
 	Scanner s=new Scanner(System.in);
 	int patientID=100;
-public void registerPatient()
+	public void registerPatient()
 		{
-			//Patient pr = new Patient();
 			patientID++;
 			System.out.println("Enter Patient name:");
 			String patientName = s.nextLine();
@@ -15,10 +14,10 @@ public void registerPatient()
 			char patientSex =s.next().charAt(0);
 			System.out.println("Choose the doctor type:");
 			System.out.println("1:Surgeon");  
-			System.out.println("2:Cardiologist"); 
-			System.out.println("3:Neurologist");
-			System.out.println("4:Physician");
-			System.out.println("5:Dermatologist");
+			System.out.println("2:Physician"); 
+			System.out.println("3:Orthopedist");
+			System.out.println("4:Dermatologist");
+			System.out.println("5:Neurologist");
 			int ch=s.nextInt();
 			String DoctorType;
 			switch (ch) {
@@ -26,16 +25,16 @@ public void registerPatient()
 					DoctorType="Surgeon";
 					break;
 				case 2:
-					DoctorType="Cardiologist";
-					break;
-				case 3:
-					DoctorType="Neurologist";
-					break;
-				case 4:
 					DoctorType="Physician";
 					break;
-				case 5:
+				case 3:
+					DoctorType="Orthopedist";
+					break;
+				case 4:
 					DoctorType="Dermatologist";
+					break;
+				case 5:
+					DoctorType="Neurologist";
 					break;	
 				default:
 				    System.out.println("INVALID CHOICE");
