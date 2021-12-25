@@ -1,3 +1,5 @@
+import java.util.Queue;
+
 public class Doctor {
     private int DoctorID;
    private String DoctorName;
@@ -5,9 +7,9 @@ public class Doctor {
    private char DoctorSex;
    private String DoctorSpeciality;
    private String assignPatient;
-   private Queue<Patient> p;
+   Queue<Patient> p;
 
-    public Doctor(int doctorID, String doctorName, int age, char doctorSex, String doctorSpeciality, String assignPatient) {
+    public Doctor(int doctorID, String doctorName, int age, char doctorSex, String doctorSpeciality) {
         DoctorID = doctorID;
         DoctorName = doctorName;
         this.age = age;
