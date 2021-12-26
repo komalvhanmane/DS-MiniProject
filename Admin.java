@@ -28,7 +28,7 @@ public class Admin {
         System.out.println("Enter choice for details of  \n1-All doctors \n2-Specific Doctor");
         switch (sc.nextInt()){
             case 1:{
-                System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality ");
+                System.out.println("\nDoctor-ID +"+"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex" +"\t\t"+"Speciality");
                 for(int i=0;i<d.size();i++){
                     System.out.println(d.get(i).getDoctorID()+"\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t"+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
                 }
@@ -39,7 +39,7 @@ public class Admin {
                 int id=sc.nextInt();
                 int i=searchDoctor(id);
                 if(i>=0){
-                    System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality ");
+                    System.out.println("\nDoctor-ID" +"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex"+" \t\t"+"Speciality ");
                     System.out.println(d.get(i).getDoctorID()+"\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t"+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
                 }else{
                     System.out.println("Doctor ID invalid");
@@ -76,7 +76,7 @@ public class Admin {
         int i=searchDoctor(id);
         if(i>=0) {
             d.remove(i);
-            System.out.println("Successfully Doctor Deleted");
+            System.out.println("Doctor Successfully Removed  ");
         }
         else
         {

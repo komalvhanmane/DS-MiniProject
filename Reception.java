@@ -50,12 +50,12 @@ public class Reception
             int i=a1.searchDoctor(p1.getDoctorType());
             if(i>=0){
                 a1.d.get(i).p.add(p1);
-                System.out.println("Successfully Registration for appointment done ");
+                System.out.println("Registration Completed Successfully!! ");
             }
             else{
                 System.out.println("Doctor Not available");
             }
-            System.out.println("do you want to continue adding patients in the list press 1");
+            System.out.println("do you want to continue adding patients in the list if yes  press 1");
         }while (sc.nextInt()==1);
     }
     public void showappointmentDetails(Admin a1)
@@ -63,7 +63,7 @@ public class Reception
         for(int i=0;i<a1.d.size();i++){
             System.out.println("Patient details of  : "+a1.d.get(i).getDoctorName());
             if(a1.d.get(i).p.isEmpty()){
-                System.out.println("No Appointment for Today");
+                System.out.println("No Appointments Scheduled for today");
                 System.out.println();
             }
             else{
