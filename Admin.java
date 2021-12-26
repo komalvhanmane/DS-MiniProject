@@ -28,7 +28,11 @@ public class Admin {
         System.out.println("Enter choice for details of  \n1-All doctors \n2-Specific Doctor");
         switch (sc.nextInt()){
             case 1:{
+<<<<<<< Updated upstream
                 System.out.println("\nDoctor-ID +"+"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex" +"\t\t"+"Speciality");
+=======
+                System.out.println("\nDoctor-ID +"\t\t"+Doctor-Name +"\t\t"+Age +"\t\t"+ Sex +"\t\t"+Speciality ");
+>>>>>>> Stashed changes
                 for(int i=0;i<d.size();i++){
                     System.out.println(d.get(i).getDoctorID()+"\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t"+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
                 }
@@ -65,7 +69,7 @@ public class Admin {
             String spc = sc.next();
             Doctor doc = new Doctor(i, name, age, gender, spc);
             d.add(doc);
-            System.out.println("do you want to add more doctors if tes press 1 ");
+            System.out.println("do you want to add more doctors if yes press 1 ");
         }while(sc.nextInt()==1);
     }
 
