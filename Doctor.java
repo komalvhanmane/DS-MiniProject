@@ -16,7 +16,7 @@ public class Doctor {
         DoctorSex = doctorSex;
         DoctorSpeciality = doctorSpeciality;
         this.assignPatient = assignPatient;
-        p=null;
+        //p=null;
     }
 
     public int getDoctorID() {

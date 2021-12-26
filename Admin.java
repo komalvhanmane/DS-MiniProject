@@ -8,15 +8,15 @@ public class Admin {
     //data of doctors
     public void doctorsInitialData(){
 
-        Doctor d1=new Doctor(1,"Dr. Strange",33,'m',"Surgeon");
+        Doctor d1=new Doctor(1,"Dr. Strange",33,'m',  "Surgeon");
         d.add(d1);
-        Doctor d2=new Doctor(2,"Dr. Who",77,'m',"Physician");
+        Doctor d2=new Doctor(2,"Dr. Who",    77,'m',  "Physician");
         d.add(d2);
-        Doctor d3=new Doctor(3,"Dr.Jones",28,'f',"Orthopedist");
+        Doctor d3=new Doctor(3,"Dr.Jones",   28,'f',  "Orthopedist");
         d.add(d3);
-        Doctor d4=new Doctor(4,"Dr.Drake",50,'m',"Dermatologist");
+        Doctor d4=new Doctor(4,"Dr.Drake",   50,'m',  "Dermatologist");
         d.add(d4);
-        Doctor d5=new Doctor(5,"Dr.Jessica",36,'f',"Neurologist");
+        Doctor d5=new Doctor(5,"Dr.Jessica", 36,'f',"  Neurologist");
         d.add(d5);
 
 
@@ -28,13 +28,10 @@ public class Admin {
         System.out.println("Enter choice for details of  \n1-All doctors \n2-Specific Doctor");
         switch (sc.nextInt()){
             case 1:{
-<<<<<<< Updated upstream
-                System.out.println("\nDoctor-ID +"+"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex" +"\t\t"+"Speciality");
-=======
-                System.out.println("\nDoctor-ID +"\t\t"+Doctor-Name +"\t\t"+Age +"\t\t"+ Sex +"\t\t"+Speciality ");
->>>>>>> Stashed changes
+                //System.out.println("\nDoctor-ID +"+"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex" +"\t\t"+"Speciality");
+                System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality \n" );
                 for(int i=0;i<d.size();i++){
-                    System.out.println(d.get(i).getDoctorID()+"\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t"+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
+                    System.out.println(d.get(i).getDoctorID() + "\t\t"+d.get(i).getDoctorName()+"   \t"+d.get(i).getAge()+"\t  "+d.get(i).getDoctorSex()+"\t"+d.get(i).getDoctorSpeciality());
                 }
                 break;
             }

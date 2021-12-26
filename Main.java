@@ -49,6 +49,7 @@ public class Main {
                         System.out.println("---------------------DOCTOR--------------------");
                         System.out.println("Enter your Doctor ID :");
                         int id=sc.nextInt();
+
                         int index=a.searchDoctor(id);
                         if(index>=0){
                             System.out.println("Enter the Password : ");
