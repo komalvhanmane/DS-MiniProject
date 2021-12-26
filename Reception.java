@@ -53,7 +53,7 @@ public class Reception
                 System.out.println("Registration Completed Successfully!! ");
             }
             else{
-                System.out.println("Doctor Not available");
+                System.out.println("Doctor Not available!!");
             }
             System.out.println("do you want to continue adding patients in the list if yes  press 1");
         }while (sc.nextInt()==1);
@@ -67,10 +67,10 @@ public class Reception
                 System.out.println();
             }
             else{
-                System.out.println("PatientID\t\tPatientName\t\tAge\t\tGender\t\t");
+                System.out.println("patient-ID \t Patient-Name  \t\t Age \tSex \n");
                 List<Patient> P2=a1.d.get(i).p.stream().toList();
                 for(int j=0;j<P2.size();j++){
-                    System.out.println(P2.get(j).getPatientID()+"\t\t"+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t\t"+P2.get(j).getPatientSex()+"\t\t");
+                    System.out.println(P2.get(j).getPatientID() + "\t\t  "+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t"+P2.get(j).getPatientSex());
                 }
                 System.out.println();
             }
