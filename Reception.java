@@ -10,8 +10,20 @@ public class Reception
         do{
             System.out.println("Enter Patient name:");
             String pname=sc.next();
-            System.out.println("Enter Patient Age:");
-            int age=sc.nextInt();
+            boolean flag=false;
+            int age=0;
+            while (!flag){
+                try{
+                    System.out.println("Enter the Patient Age  ");
+                    age = sc.nextInt();
+                    if(age<0 || age>100){
+                        throw new Exception();
+                    }
+                    flag=true;
+                }catch (Exception e){
+                    System.out.println("INVALID AGE");
+                }
+            }
             System.out.println("Enter Patient Gender:");
             char patientGender=sc.next().charAt(0);
             String DoctorType = "";
@@ -43,11 +55,11 @@ public class Reception
                     DoctorType=null;
                     break;
             }
-            System.out.println("Enter the amount patient needs to pay for appointment:");
-            float amountForAppointment = sc.nextFloat();
-            Patient p1=new Patient(patientID++,pname,age,patientGender,DoctorType,amountForAppointment);
+            //System.out.println("Enter the amount patient needs to pay for appointment:");
+            //float amountForAppointment =  //sc.nextFloat();
+            Patient p1=new Patient(patientID++,pname,age,patientGender,DoctorType);
 
-            int i=a1.searchDoctor(p1.getDoctorType());
+            int i=a1.searchdoctor(p1.getPatientIllness());
             if(i>=0){
                 a1.d.get(i).p.add(p1);
                 System.out.println("Registration Completed Successfully!! ");
@@ -55,7 +67,7 @@ public class Reception
             else{
                 System.out.println("Doctor Not available!!");
             }
-            System.out.println("do you want to continue adding patients in the list if yes  press 1");
+            System.out.println("do you want to continue adding patients in the list press 1");
         }while (sc.nextInt()==1);
     }
     public void showappointmentDetails(Admin a1)
@@ -67,12 +79,14 @@ public class Reception
                 System.out.println();
             }
             else{
-                System.out.println("patient-ID \t Patient-Name  \t\t Age \tSex \n");
+                System.out.println("---------------------------------------------------------------------------");
+                System.out.println("patient-ID \t Patient-Name  \t\t Age \tSex ");
                 List<Patient> P2=a1.d.get(i).p.stream().toList();
                 for(int j=0;j<P2.size();j++){
-                    System.out.println(P2.get(j).getPatientID() + "\t\t  "+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t"+P2.get(j).getPatientSex());
+                    System.out.println(P2.get(j).getPatientID()+"\t\t"+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t\t"+P2.get(j).getPatientSex()+"\t\t");
                 }
                 System.out.println();
+                System.out.println("---------------------------------------------------------------------------");
             }
 
         }

@@ -1,25 +1,26 @@
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Admin {
-    LinkedList<Doctor> d=new LinkedList<>();
+    LinkedList<Doctor> d;
+    public Admin(){
+        d=new LinkedList<>();
+    }
 
     //data of doctors
     public void doctorsInitialData(){
-
-        Doctor d1=new Doctor(1,"Dr. Strange",33,'m',  "Surgeon");
+        Doctor d1=new Doctor(1,"Dr.Strnge",33,'m',"Surgeon",100);
         d.add(d1);
-        Doctor d2=new Doctor(2,"Dr. Who",    77,'m',  "Physician");
+        Doctor d2=new Doctor(2,"Dr.Whosee",77,'m',"Physician",300);
         d.add(d2);
-        Doctor d3=new Doctor(3,"Dr.Jones",   28,'f',  "Orthopedist");
+        Doctor d3=new Doctor(3,"Dr.Joness",28,'f',"Orthopedist",100);
         d.add(d3);
-        Doctor d4=new Doctor(4,"Dr.Drake",   50,'m',  "Dermatologist");
+        Doctor d4=new Doctor(4,"Dr.Drakez",50,'m',"Dermatologist",500);
         d.add(d4);
-        Doctor d5=new Doctor(5,"Dr.Jessica", 36,'f',"  Neurologist");
+        Doctor d5=new Doctor(5,"Dr.Jessic",36,'f',"Neurologist",1000);
         d.add(d5);
-
-
     }
 
     Scanner sc=new Scanner(System.in);
@@ -28,8 +29,7 @@ public class Admin {
         System.out.println("Enter choice for details of  \n1-All doctors \n2-Specific Doctor");
         switch (sc.nextInt()){
             case 1:{
-                //System.out.println("\nDoctor-ID +"+"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex" +"\t\t"+"Speciality");
-                System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality \n" );
+                System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality \n");
                 for(int i=0;i<d.size();i++){
                     System.out.println(d.get(i).getDoctorID() + "\t\t"+d.get(i).getDoctorName()+"   \t"+d.get(i).getAge()+"\t  "+d.get(i).getDoctorSex()+"\t"+d.get(i).getDoctorSpeciality());
                 }
@@ -40,6 +40,7 @@ public class Admin {
                 int id=sc.nextInt();
                 int i=searchDoctor(id);
                 if(i>=0){
+                   // System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality ");
                     System.out.println("\nDoctor-ID" +"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex"+" \t\t"+"Speciality ");
                     System.out.println(d.get(i).getDoctorID()+"\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t"+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
                 }else{
@@ -58,15 +59,50 @@ public class Admin {
             int i = d.size() + 1;
             System.out.println("Enter the Doctor Name  ");
             String name = sc.next();
-            System.out.println("Enter the Doctor Age  ");
-            int age = sc.nextInt();
+            boolean flag=false;
+            int age=24;
+            while (!flag){
+                try{
+                    System.out.println("Enter the Doctor Age  ");
+                    age = sc.nextInt();
+                    if(age<23 || age>100){
+                        throw new Exception();
+                    }
+                    flag=true;
+                }catch (Exception e){
+                    System.out.println("Invalid age for this Role");
+                }
+            }
+
             System.out.println("Enter the Doctor  Gender  ");
             char gender = sc.next().charAt(0);
-            System.out.println("Enter the Doctor Speciality  ");
-            String spc = sc.next();
-            Doctor doc = new Doctor(i, name, age, gender, spc);
+            String DoctorType="";
+            System.out.println("Enter the Doctor Speciality \n1-1:Surgeon\n2-Cardiologist\n3-Neurologist\n4-Physician\n5-Dermatologist ");
+            switch (sc.nextInt()){
+                case 1:
+                    DoctorType="Surgeon";
+                    break;
+                case 2:
+                    DoctorType="Cardiologist";
+                    break;
+                case 3:
+                    DoctorType="Neurologist";
+                    break;
+                case 4:
+                    DoctorType="Physician";
+                    break;
+                case 5:
+                    DoctorType="Dermatologist";
+                    break;
+                default:
+                    System.out.println("INVALID CHOICE");
+                    break;
+            }
+            System.out.println("Enter the Check up fees");
+            double fees=sc.nextDouble();
+            Doctor doc = new Doctor(i, name, age, gender, DoctorType,fees);
             d.add(doc);
-            System.out.println("do you want to add more doctors if yes press 1 ");
+            System.out.println("Do you want to add more doctors if yes press 1 ");
         }while(sc.nextInt()==1);
     }
 
@@ -77,7 +113,7 @@ public class Admin {
         int i=searchDoctor(id);
         if(i>=0) {
             d.remove(i);
-            System.out.println("Doctor Successfully Removed  ");
+            System.out.println("Doctor Successfully Deleted");
         }
         else
         {
@@ -95,9 +131,10 @@ public class Admin {
         return -1;
     }
 
-    public int searchDoctor(String DoctorSpeciality){
+    //seach doctor by speciality
+    public int searchdoctor(String s){
         for(int i=0;i<d.size();i++){
-            if(DoctorSpeciality.equals(d.get(i).getDoctorSpeciality())){
+            if(Objects.equals(s, d.get(i).getDoctorSpeciality())){
                 return i;
             }
         }

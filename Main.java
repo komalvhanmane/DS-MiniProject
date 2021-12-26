@@ -8,7 +8,7 @@ public class Main {
         DoctorInfo di=new DoctorInfo();
         Reception r=new Reception();
         do{
-            System.out.println("WHO ARE YOU ? \n1-ADMIN \n2-DOCTOR \n3-RECEPTIONIST");
+            System.out.println("WHO ARE YOU ? \n1-ADMIN \n2-RECEPTIONIST \n3-DOCTOR");
             switch (sc.nextInt()){
                 case 1:{
                     do{
@@ -38,24 +38,23 @@ public class Main {
                             }while (sc.nextInt()==1);
                         }
                         else{
-                            System.out.println("The Password Entered Is Incorrect!!");
+                            System.out.println("Written Password is wrong");
                         }
                         System.out.println("Do you want to login again as a admin if yes press 1");
                     }while (sc.nextInt()==1);
                     break;
                 }
-                case 2:{
+                case 3:{
                     do{
                         System.out.println("---------------------DOCTOR--------------------");
                         System.out.println("Enter your Doctor ID :");
                         int id=sc.nextInt();
-
                         int index=a.searchDoctor(id);
                         if(index>=0){
                             System.out.println("Enter the Password : ");
                             String pass=sc.next();
                             if(pass.equals("doctor")){
-                                System.out.println("You Have Successfully Loged in ");
+                                System.out.println("you have successfully Loged in ");
                                 do{
                                     System.out.println("Enter your choice \n1-Check Appointment\n2-Delete Appointement");
                                     switch (sc.nextInt()){
@@ -72,7 +71,7 @@ public class Main {
                                 }while (sc.nextInt()==1);
                             }
                             else{
-                                System.out.println("The password entered is incorecct! Please try again");
+                                System.out.println("Written Password is wrong");
                             }
                         }
 
@@ -80,7 +79,7 @@ public class Main {
                     }while (sc.nextInt()==1);
                     break;
                 }
-                case 3:{
+                case 2:{
                     do{
                         System.out.println("----------------------RECEPTION--------------");
                         System.out.println("Enter the Password : ");
@@ -103,7 +102,7 @@ public class Main {
                             }while (sc.nextInt()==1);
                         }
                         else{
-                            System.out.println("The Password Entered is Incorrect");
+                            System.out.println("Written Password is wrong");
                         }
                         System.out.println("Do you want to login again as a receptionist if yes press 1");
                     }while (sc.nextInt()==1);

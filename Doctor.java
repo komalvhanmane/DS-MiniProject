@@ -8,6 +8,7 @@ public class Doctor {
    private String DoctorSpeciality;
    private String assignPatient;
    Queue<Patient> p;
+   private double amt;//checking fees
 
     public Doctor(int doctorID, String doctorName, int age, char doctorSex, String doctorSpeciality) {
         DoctorID = doctorID;
@@ -16,7 +17,7 @@ public class Doctor {
         DoctorSex = doctorSex;
         DoctorSpeciality = doctorSpeciality;
         this.assignPatient = assignPatient;
-        //p=null;
+        this.amt=amt;
     }
 
     public int getDoctorID() {
