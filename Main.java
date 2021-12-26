@@ -38,7 +38,7 @@ public class Main {
                             }while (sc.nextInt()==1);
                         }
                         else{
-                            System.out.println("Written Password is wrong");
+                            System.out.println("The Password Entered is Incorrect");
                         }
                         System.out.println("Do you want to login again as a admin if yes press 1");
                     }while (sc.nextInt()==1);
@@ -71,7 +71,7 @@ public class Main {
                                 }while (sc.nextInt()==1);
                             }
                             else{
-                                System.out.println("Written Password is wrong");
+                                System.out.println("The Password Entered is Incorrect");
                             }
                         }
 
@@ -102,7 +102,7 @@ public class Main {
                             }while (sc.nextInt()==1);
                         }
                         else{
-                            System.out.println("Written Password is wrong");
+                            System.out.println("The password entered is incorecct! Please try again");
                         }
                         System.out.println("Do you want to login again as a receptionist if yes press 1");
                     }while (sc.nextInt()==1);
