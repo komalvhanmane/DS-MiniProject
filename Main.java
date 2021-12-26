@@ -16,7 +16,7 @@ public class Main {
                         System.out.println("Enter the Password : ");
                         String pass=sc.next();
                         if(pass.equals("admin")){
-                            System.out.println("you have successfully Loged in ");
+                            System.out.println("You have logged in successfully ");
                             do{
                                 System.out.println("Enter your choice \n1-Add Doctor\n2-View Doctor\n3-Remove Doctor");
                                 switch (sc.nextInt()){
@@ -34,13 +34,13 @@ public class Main {
                                         break;
                                     }
                                 }
-                                System.out.println("Do you want to continue as a admin if yes press 1");
+                                System.out.println("Do you want to continue as a admin, if yes press 1");
                             }while (sc.nextInt()==1);
                         }
                         else{
                             System.out.println("The Password Entered is Incorrect");
                         }
-                        System.out.println("Do you want to login again as a admin if yes press 1");
+                        System.out.println("Do you want to login again as a admin, if yes press 1");
                     }while (sc.nextInt()==1);
                     break;
                 }
@@ -54,7 +54,7 @@ public class Main {
                             System.out.println("Enter the Password : ");
                             String pass=sc.next();
                             if(pass.equals("doctor")){
-                                System.out.println("you have successfully Loged in ");
+                                System.out.println("You have logged in successfully ");
                                 do{
                                     System.out.println("Enter your choice \n1-Check Appointment\n2-Delete Appointement");
                                     switch (sc.nextInt()){
@@ -67,7 +67,7 @@ public class Main {
                                             break;
                                         }
                                     }
-                                    System.out.println("Do you want to continue as a doctor if yes press 1");
+                                    System.out.println("Do you want to continue as a doctor, if yes press 1");
                                 }while (sc.nextInt()==1);
                             }
                             else{
@@ -75,7 +75,7 @@ public class Main {
                             }
                         }
 
-                        System.out.println("Do you want to login again as a doctor if yes press 1");
+                        System.out.println("Do you want to login again as a doctor, if yes press 1");
                     }while (sc.nextInt()==1);
                     break;
                 }
@@ -85,7 +85,7 @@ public class Main {
                         System.out.println("Enter the Password : ");
                         String pass=sc.next();
                         if(pass.equals("reception")){
-                            System.out.println("you have successfully Loged in ");
+                            System.out.println("You have logged in successfully");
                             do{
                                 System.out.println("Enter your choice \n1-Register Patient\n2-Show Appointment Details");
                                 switch (sc.nextInt()){
@@ -98,17 +98,17 @@ public class Main {
                                         break;
                                     }
                                 }
-                                System.out.println("Do you want to continue as a receptionist if yes press 1");
+                                System.out.println("Do you want to continue as a receptionist, if yes press 1");
                             }while (sc.nextInt()==1);
                         }
                         else{
                             System.out.println("The password entered is incorecct! Please try again");
                         }
-                        System.out.println("Do you want to login again as a receptionist if yes press 1");
+                        System.out.println("Do you want to login again as a receptionist, if yes press 1");
                     }while (sc.nextInt()==1);
                 }
             }
-            System.out.println("Do you want to Login again in another role if yes press 1");
+            System.out.println("Do you want to Login again in another role, if yes press 1");
         }while (sc.nextInt()==1);
     }
 }

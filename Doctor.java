@@ -10,7 +10,7 @@ public class Doctor {
    Queue<Patient> p;
    private double amt;//checking fees
 
-    public Doctor(int doctorID, String doctorName, int age, char doctorSex, String doctorSpeciality) {
+    public Doctor(int doctorID, String doctorName, int age, char doctorSex, String doctorSpeciality,double fees) {
         DoctorID = doctorID;
         DoctorName = doctorName;
         this.age = age;

@@ -41,8 +41,8 @@ public class Admin {
                 int i=searchDoctor(id);
                 if(i>=0){
                    // System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality ");
-                    System.out.println("\nDoctor-ID" +"\t\t"+"Doctor-Name" +"\t\t"+"Age"+" \t\t"+" Sex"+" \t\t"+"Speciality ");
-                    System.out.println(d.get(i).getDoctorID()+"\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t"+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
+                   System.out.println("\nDoctor-ID \tDoctor-Name \tAge \t Sex \tSpeciality \n");
+                    System.out.println(d.get(i).getDoctorID() + "\t\t"+d.get(i).getDoctorName()+"   \t"+d.get(i).getAge()+"\t  "+d.get(i).getDoctorSex()+"\t"+d.get(i).getDoctorSpeciality());
                 }else{
                     System.out.println("Doctor ID invalid");
                 }
@@ -58,7 +58,7 @@ public class Admin {
             System.out.println("Enter the Doctor details :- \n ");
             int i = d.size() + 1;
             System.out.println("Enter the Doctor Name  ");
-            String name = sc.next();
+            String name = sc.nextLine();
             boolean flag=false;
             int age=24;
             while (!flag){
@@ -74,10 +74,10 @@ public class Admin {
                 }
             }
 
-            System.out.println("Enter the Doctor  Gender  ");
+            System.out.println("Enter the Doctor Gender  ");
             char gender = sc.next().charAt(0);
             String DoctorType="";
-            System.out.println("Enter the Doctor Speciality \n1-1:Surgeon\n2-Cardiologist\n3-Neurologist\n4-Physician\n5-Dermatologist ");
+            System.out.println("Enter the Doctor Speciality \n1-Surgeon\n2-Cardiologist\n3-Neurologist\n4-Physician\n5-Dermatologist ");
             switch (sc.nextInt()){
                 case 1:
                     DoctorType="Surgeon";
@@ -98,11 +98,11 @@ public class Admin {
                     System.out.println("INVALID CHOICE");
                     break;
             }
-            System.out.println("Enter the Check up fees");
+            System.out.println("Enter the Check-up fees of doctor");
             double fees=sc.nextDouble();
             Doctor doc = new Doctor(i, name, age, gender, DoctorType,fees);
             d.add(doc);
-            System.out.println("Do you want to add more doctors if yes press 1 ");
+            System.out.println("Do you want to add more doctors, if yes press 1 ");
         }while(sc.nextInt()==1);
     }
 

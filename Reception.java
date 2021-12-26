@@ -59,7 +59,7 @@ public class Reception
             //float amountForAppointment =  //sc.nextFloat();
             Patient p1=new Patient(patientID++,pname,age,patientGender,DoctorType);
 
-            int i=a1.searchdoctor(p1.getPatientIllness());
+            int i=a1.searchdoctor(p1.getDoctorType());
             if(i>=0){
                 a1.d.get(i).p.add(p1);
                 System.out.println("Registration Completed Successfully!! ");
