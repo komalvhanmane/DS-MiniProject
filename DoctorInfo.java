@@ -22,7 +22,7 @@ public class DoctorInfo {
         }
         else{
             d.p.remove();
-            System.out.println("Appointment Deleted ");
+            System.out.println("Patient removed Successfully");
         }
     }
 
