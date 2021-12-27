@@ -91,7 +91,7 @@ public class Reception
                 DateTimeFormatter myformatobj=DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
                 String fdat=myDate.format(myformatobj);
                 System.out.println("Registration Completed Successfully on ***** "+fdat+" *****");
-                System.out.println("--------------------------------------------------------------");
+                System.out.println("------------------------------------------------------------------------------");
             }
             else{
                 System.out.println("Doctor Not available!!");
@@ -102,10 +102,10 @@ public class Reception
     public void showappointmentDetails(Admin a1)
     {
         System.out.println("Enter choice for appointment Details of  \n1-All doctors \n2-Specific Doctor");
-        System.out.println("------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------");
         switch (sc.nextInt()){
             case 1:{
-                System.out.println("------------------------------------------------------------");
+                System.out.println("----------------------------------------------------------------------------");
                 for(int i=0;i<a1.d.size();i++){
                     System.out.println("Patient details of  : "+a1.d.get(i).getDoctorName());
                     if(a1.d.get(i).p.isEmpty()){
@@ -118,7 +118,7 @@ public class Reception
                             System.out.println(P2.get(j).getPatientID()+"\t\t"+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t\t"+P2.get(j).getPatientSex()+"\t\t");
                         }
                     }
-                    System.out.println("------------------------------------------------------------");
+                    System.out.println("----------------------------------------------------------------------------");
                 }
                 break;
             }
@@ -131,12 +131,12 @@ public class Reception
                         System.out.println("****No Appointments Scheduled for today****");
                     }
                     else{
-                        System.out.println("---------------------"+a1.d.get(i).getDoctorName()+" Appointments-----------------");
+                        System.out.println("-----------------------------"+a1.d.get(i).getDoctorName()+" Appointments-------------------------");
                         System.out.println("ID\t\tName\t\tAge\t\tSex");
                         List<Patient> P2=a1.d.get(i).p.stream().toList();
                         for(int j=0;j<P2.size();j++){
                             System.out.println(P2.get(j).getPatientID()+"\t\t"+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t\t"+P2.get(j).getPatientSex()+"\t\t");
-                        } System.out.println("------------------------------------------------------");
+                        } System.out.println("----------------------------------------------------------------------");
                     }
                 }else{
                     System.out.println("Doctor ID invalid");

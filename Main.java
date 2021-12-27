@@ -16,7 +16,7 @@ public class Main {
             switch (sc.nextInt()){
                 case 1:{
                     do{
-                        System.out.println("---------------------ADMIN--------------------");
+                        System.out.println("-----------------------------ADMIN----------------------------");
                         System.out.println("Enter the Password : ");
                         String pass=sc.next();
                         if(pass.equals("admin")){
@@ -41,7 +41,7 @@ public class Main {
                             }while (sc.nextInt()==1);
                         }
                         else{
-                            System.out.println("The Password Entered is Incorrect");
+                            System.out.println("The Password Entered is Incorrect! Please try again");
                         }
                         System.out.println("Do you want to login again as a admin, if yes press 1");
                     }while (sc.nextInt()==1);
@@ -49,7 +49,7 @@ public class Main {
                 }
                 case 2:{
                     do{
-                        System.out.println("----------------------RECEPTION--------------");
+                        System.out.println("------------------------------RECEPTION----------------------");
                         System.out.println("Enter the Password : ");
                         String pass=sc.next();
                         if(pass.equals("reception")){
@@ -70,7 +70,7 @@ public class Main {
                             }while (sc.nextInt()==1);
                         }
                         else{
-                            System.out.println("The password entered is incorecct! Please try again");
+                            System.out.println("The password entered is incorrect! Please try again");
                         }
                         System.out.println("Do you want to login again as a receptionist, if yes press 1");
                     }while (sc.nextInt()==1);
@@ -78,7 +78,7 @@ public class Main {
                 }
                 case 3:{
                     do{
-                        System.out.println("---------------------DOCTOR--------------------");
+                        System.out.println("-----------------------------DOCTOR----------------------------");
                         System.out.println("Enter your Doctor ID :");
                         int id=sc.nextInt();
                         int index=a.searchDoctor(id);
@@ -103,7 +103,7 @@ public class Main {
                                 }while (sc.nextInt()==1);
                             }
                             else{
-                                System.out.println("The Password Entered is Incorrect");
+                                System.out.println("The Password Entered is Incorrect! Please try again");
                             }
                         }
                         else{
@@ -118,6 +118,6 @@ public class Main {
             System.out.println("Do you want to Login again in another role, if yes press 1");
         }while (sc.nextInt()==1);
 
-        System.out.println("----------------------------THANK YOU-----------------------------");
+        System.out.println("-----------------------------------THANK YOU----------------------------------");
     }
 }

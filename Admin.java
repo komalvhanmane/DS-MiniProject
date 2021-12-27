@@ -27,16 +27,16 @@ public class Admin {
     //view doctor details
     public void viewDoctorsDetails(){
         System.out.println("Enter choice for details of  \n1-All doctors \n2-Specific Doctor");
-        System.out.println("------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------");
         switch (sc.nextInt()){
             case 1:{
-                System.out.println("-------------------Doctor Information-----------------");
+                System.out.println("--------------------------------Doctor Information-------------------------------");
                 System.out.println("\nID\t\tDoctorName\t\tAge\t\tSex\t\tSpeciality");
-                System.out.println("------------------------------------------------------");
+                System.out.println("--------------------------------------------------------------------------------");
                 for(int i=0;i<d.size();i++){
                     System.out.println(d.get(i).getDoctorID() + "\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t "+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
                 }
-                System.out.println("------------------------------------------------------");
+                System.out.println("---------------------------------------------------------------------------------");
                 break;
             }
             case 2:{
@@ -44,10 +44,10 @@ public class Admin {
                 int id=sc.nextInt();
                 int i=searchDoctor(id);
                 if(i>=0){
-                    System.out.println("---------------------"+d.get(i).getDoctorName()+" Information-----------------");
+                    System.out.println("--------------------------------"+d.get(i).getDoctorName()+" Information----------------------------");
                     System.out.println("\nID\t\tDoctorName\t\tAge\t\tSex\t\tSpeciality");
                     System.out.println(d.get(i).getDoctorID() + "\t\t"+d.get(i).getDoctorName()+"\t\t"+d.get(i).getAge()+"\t\t "+d.get(i).getDoctorSex()+"\t\t"+d.get(i).getDoctorSpeciality());
-                    System.out.println("------------------------------------------------------");
+                    System.out.println("---------------------------------------------------------------------------------");
                 }else{
                     System.out.println("Doctor ID invalid");
                 }
