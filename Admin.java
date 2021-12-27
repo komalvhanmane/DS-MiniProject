@@ -6,11 +6,10 @@ import java.util.Scanner;
 public class Admin {
     LinkedList<Doctor> d;
     public Admin(){
-        d=new LinkedList<>();
+        d=new LinkedList<>();                                                                                           //constructor to create list of doctors
     }
 
-    //data of doctors
-    public void doctorsInitialData(){
+   public void doctorsInitialData(){                                                                                    //adding 5 doctors of different specialities to the list
         Doctor d1=new Doctor(1,"Dr.Kumarr",33,'m',"Surgeon",1000);
         d.add(d1);
         Doctor d2=new Doctor(2,"Dr.Kelkar",77,'m',"Physician",300);
@@ -29,7 +28,7 @@ public class Admin {
         System.out.println("Enter choice for details of  \n1-All doctors \n2-Specific Doctor");
         System.out.println("---------------------------------------------------------------------------------");
         switch (sc.nextInt()){
-            case 1:{
+            case 1:{                                                                                                    //viewing all doctor's details
                 System.out.println("--------------------------------Doctor Information-------------------------------");
                 System.out.println("\nID\t\tDoctorName\t\tAge\t\tSex\t\tSpeciality");
                 System.out.println("--------------------------------------------------------------------------------");
@@ -40,7 +39,7 @@ public class Admin {
                 break;
             }
             case 2:{
-                System.out.println("Enter the id of the doctor whose details are to be displayed ");
+                System.out.println("Enter the id of the doctor whose details are to be displayed ");                      //accepting id of a doctor to display details of specific doctor
                 int id=sc.nextInt();
                 int i=searchDoctor(id);
                 if(i>=0){
@@ -57,11 +56,11 @@ public class Admin {
     }
 
 
-    //add doctor
+    //adding doctor
     public void addDoctor(){
         do {
             System.out.println("Enter the Doctor details :- \n ");
-            int i = d.get(d.size()-1).getDoctorID() + 1;
+            int i = d.get(d.size()-1).getDoctorID() + 1;                                                                //assigning new doctor id at end of the list
             System.out.println("Enter the Doctor Name  ");
             String name = sc.next();
             boolean flag=false;
@@ -71,18 +70,18 @@ public class Admin {
                     System.out.println("Enter the Doctor Age  ");
                     age = sc.nextInt();
                     if(age<23 || age>100){
-                        throw new Exception();
+                        throw new Exception();                                                                          //exception is thrown if age isn't appropriate
                     }
                     flag=true;
                 }catch (Exception e){
-                    System.out.println("Invalid age for this Role");
+                    System.out.println("Invalid age for this Role");                                                    //printing the exception
                 }
             }
 
             System.out.println("Enter the Doctor Gender  ");
             char gender = sc.next().charAt(0);
             String DoctorType="";
-            System.out.println("Enter the Doctor Speciality \n1-Surgeon\n2-Cardiologist\n3-Neurologist\n4-Physician\n5-Dermatologist ");
+            System.out.println("Enter the Doctor Speciality \n1-Surgeon\n2-Cardiologist\n3-Neurologist\n4-Physician\n5-Dermatologist ");            //asking for doctor speciality for adding doctor
             System.out.println("------------------------------------------------------------");
             switch (sc.nextInt()){
                 case 1:
@@ -114,39 +113,39 @@ public class Admin {
         }while(sc.nextInt()==1);
     }
 
-    //remove doctor
+    //remove doctor from hospital
     public void removeDoctor(){
         System.out.println("Enter the id of the doctor to be Deleted ");
         int id=sc.nextInt();
-        int i=searchDoctor(id);
+        int i=searchDoctor(id);                                                                             //searching doctor to be deleted by id
         if(i>=0) {
-            d.remove(i);
+            d.remove(i);                                                                                    //removing doctor from list
             System.out.println("Doctor Successfully Deleted");
         }
         else
         {
-            System.out.println("Invalid Doctor Id ");
+            System.out.println("Invalid Doctor Id ");                                                       //doctor ID does not exist
         }
     }
 
-    //search doctors
+    //search doctors by ID
     public int searchDoctor(int id){
         for(int i=0;i<d.size();i++){
             if(id==d.get(i).getDoctorID()){
                 return i;
             }
         }
-        return -1;
+        return -1;                                                                                          //invalid Doctor ID
     }
 
     //seach doctor by speciality
     public LinkedList<Integer> searchdoctor(String s){
-        LinkedList<Integer> docindex=new LinkedList<>();
+        LinkedList<Integer> docindex=new LinkedList<>();                                                    //List of doctor of a particular speciality
         for(int i=0;i<d.size();i++){
             if(Objects.equals(s, d.get(i).getDoctorSpeciality())){
                 docindex.add(i);
             }
         }
-        return docindex;
+        return docindex;                                                                                    //returning all available doctors of particular speciality
     }
 }
