@@ -7,6 +7,10 @@ public class Main {
         a.doctorsInitialData();
         DoctorInfo di=new DoctorInfo();
         Reception r=new Reception();
+        r.patientInitialData(a);
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("_________________WELCOME TO CITY HOSPITAL____________________");
+        System.out.println("-------------------------------------------------------------");
         do{
             System.out.println("WHO ARE YOU ? \n1-ADMIN \n2-RECEPTIONIST \n3-DOCTOR");
             switch (sc.nextInt()){
@@ -22,7 +26,6 @@ public class Main {
                                 switch (sc.nextInt()){
                                     case 1:{
                                         a.addDoctor();
-                                        System.out.println("Doctor Added Successfully");
                                         break;
                                     }
                                     case 2:{
@@ -71,6 +74,7 @@ public class Main {
                         }
                         System.out.println("Do you want to login again as a receptionist, if yes press 1");
                     }while (sc.nextInt()==1);
+                    break;
                 }
                 case 3:{
                     do{
@@ -102,6 +106,9 @@ public class Main {
                                 System.out.println("The Password Entered is Incorrect");
                             }
                         }
+                        else{
+                            System.out.println("Doctor ID invalid");
+                        }
 
                         System.out.println("Do you want to login again as a doctor, if yes press 1");
                     }while (sc.nextInt()==1);
@@ -110,5 +117,7 @@ public class Main {
             }   
             System.out.println("Do you want to Login again in another role, if yes press 1");
         }while (sc.nextInt()==1);
+
+        System.out.println("----------------------------THANK YOU-----------------------------");
     }
 }

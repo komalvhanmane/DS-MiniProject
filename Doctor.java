@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class Doctor {
@@ -8,7 +9,26 @@ public class Doctor {
    private String DoctorSpeciality;
    private String assignPatient;
    Queue<Patient> p;
-   private double amt;//checking fees
+
+    public int getPatientcount() {
+        return patientcount;
+    }
+
+    public void setPatientcount(int patientcount) {
+        this.patientcount = patientcount;
+    }
+
+    private int patientcount;
+
+    public double getAmt() {
+        return amt;
+    }
+
+    public void setAmt(double amt) {
+        this.amt = amt;
+    }
+
+    private double amt;//checking fees
 
     public Doctor(int doctorID, String doctorName, int age, char doctorSex, String doctorSpeciality,double fees) {
         DoctorID = doctorID;
@@ -16,8 +36,10 @@ public class Doctor {
         this.age = age;
         DoctorSex = doctorSex;
         DoctorSpeciality = doctorSpeciality;
-        this.assignPatient = assignPatient;
-        this.amt=amt;
+        //this.assignPatient = assignPatient;
+        amt=fees;
+        p=new LinkedList<>();
+        patientcount=p.size();
     }
 
     public int getDoctorID() {

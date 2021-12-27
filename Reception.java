@@ -1,3 +1,6 @@
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 public class Reception
@@ -5,6 +8,20 @@ public class Reception
     Scanner sc=new Scanner(System.in);
     int patientID=100;
 
+    public void patientInitialData(Admin a){
+        Patient p1=new Patient(patientID++,"Vidhii",19,'f',"Physician");
+        a.d.get(1).p.add(p1);
+        Patient p2=new Patient(patientID++,"Shweta",23,'f',"Surgeon");
+        a.d.get(0).p.add(p2);
+        Patient p3=new Patient(patientID++,"Shreya",43,'f',"Orthopedist");
+        a.d.get(2).p.add(p3);
+        Patient p4=new Patient(patientID++,"Aditya",69,'m',"Dermatologist");
+        a.d.get(3).p.add(p4);
+        Patient p5=new Patient(patientID++,"Snehal",14,'f',"Neurologist");
+        a.d.get(4).p.add(p5);
+        Patient p6=new Patient(patientID++,"Yashwi",10,'f',"Physician");
+        a.d.get(1).p.add(p6);
+    }
     public void registerPatient(Admin a1)
     {
         do{
@@ -55,14 +72,26 @@ public class Reception
                     DoctorType=null;
                     break;
             }
-            //System.out.println("Enter the amount patient needs to pay for appointment:");
             //float amountForAppointment =  //sc.nextFloat();
             Patient p1=new Patient(patientID++,pname,age,patientGender,DoctorType);
 
-            int i=a1.searchdoctor(p1.getDoctorType());
-            if(i>=0){
-                a1.d.get(i).p.add(p1);
-                System.out.println("Registration Completed Successfully!! ");
+            LinkedList<Integer> doctorspecilist =a1.searchdoctor(p1.getDoctorType());
+            int i=0;
+            if(doctorspecilist.size()>0){
+                for(i=0;i<doctorspecilist.size();i++){
+                    a1.d.get(doctorspecilist.get(i)).setPatientcount(a1.d.get(doctorspecilist.get(i)).p.size());
+                    if(a1.d.get(doctorspecilist.get(i)).getPatientcount()<3){
+                        a1.d.get(doctorspecilist.get(i)).p.add(p1);
+
+                        break;
+                    }
+                }
+                System.out.println("Ask patient to pay Appointment fees: "+a1.d.get(doctorspecilist.get(i)).getAmt());
+                LocalDateTime myDate=LocalDateTime.now();
+                DateTimeFormatter myformatobj=DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                String fdat=myDate.format(myformatobj);
+                System.out.println("Registration Completed Successfully on ***** "+fdat+" *****");
+                System.out.println("--------------------------------------------------------------");
             }
             else{
                 System.out.println("Doctor Not available!!");
@@ -72,23 +101,48 @@ public class Reception
     }
     public void showappointmentDetails(Admin a1)
     {
-        for(int i=0;i<a1.d.size();i++){
-            System.out.println("Patient details of  : "+a1.d.get(i).getDoctorName());
-            if(a1.d.get(i).p.isEmpty()){
-                System.out.println("No Appointments Scheduled for today");
-                System.out.println();
-            }
-            else{
-                System.out.println("---------------------------------------------------------------------------");
-                System.out.println("patient-ID \t Patient-Name  \t\t Age \tSex ");
-                List<Patient> P2=a1.d.get(i).p.stream().toList();
-                for(int j=0;j<P2.size();j++){
-                    System.out.println(P2.get(j).getPatientID()+"\t\t"+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t\t"+P2.get(j).getPatientSex()+"\t\t");
+        System.out.println("Enter choice for appointment Details of  \n1-All doctors \n2-Specific Doctor");
+        System.out.println("------------------------------------------------------------");
+        switch (sc.nextInt()){
+            case 1:{
+                System.out.println("------------------------------------------------------------");
+                for(int i=0;i<a1.d.size();i++){
+                    System.out.println("Patient details of  : "+a1.d.get(i).getDoctorName());
+                    if(a1.d.get(i).p.isEmpty()){
+                        System.out.println("****No Appointments Scheduled for today****");
+                    }
+                    else{
+                        System.out.println("ID\t\tName\t\tAge\t\tSex");
+                        List<Patient> P2=a1.d.get(i).p.stream().toList();
+                        for(int j=0;j<P2.size();j++){
+                            System.out.println(P2.get(j).getPatientID()+"\t\t"+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t\t"+P2.get(j).getPatientSex()+"\t\t");
+                        }
+                    }
+                    System.out.println("------------------------------------------------------------");
                 }
-                System.out.println();
-                System.out.println("---------------------------------------------------------------------------");
+                break;
             }
-
+            case 2:{
+                System.out.println("Enter the id of the doctor whose appointment details are to be displayed ");
+                int id=sc.nextInt();
+                int i=a1.searchDoctor(id);
+                if(i>=0){
+                    if(a1.d.get(i).p.isEmpty()){
+                        System.out.println("****No Appointments Scheduled for today****");
+                    }
+                    else{
+                        System.out.println("---------------------"+a1.d.get(i).getDoctorName()+" Appointments-----------------");
+                        System.out.println("ID\t\tName\t\tAge\t\tSex");
+                        List<Patient> P2=a1.d.get(i).p.stream().toList();
+                        for(int j=0;j<P2.size();j++){
+                            System.out.println(P2.get(j).getPatientID()+"\t\t"+P2.get(j).getPatientName()+"\t\t"+P2.get(j).getAge()+"\t\t"+P2.get(j).getPatientSex()+"\t\t");
+                        } System.out.println("------------------------------------------------------");
+                    }
+                }else{
+                    System.out.println("Doctor ID invalid");
+                }
+                break;
+            }
         }
     }
 }
