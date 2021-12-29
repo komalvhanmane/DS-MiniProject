@@ -84,12 +84,18 @@ public class Reception
                         break;
                     }
                 }
-                System.out.println("Ask patient to pay Appointment fees: "+a1.d.get(doctorspecilist.get(i)).getAmt());
-                LocalDateTime myDate=LocalDateTime.now();                                              //creating object to get the time of appointment registration
-                DateTimeFormatter myformatobj=DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-                String fdat=myDate.format(myformatobj);
-                System.out.println("Registration Completed Successfully on ***** "+fdat+" *****");
-                System.out.println("------------------------------------------------------------------------------");
+                if(i==doctorspecilist.size()){
+                    System.out.println("****Appointment Full****");
+                }
+                else{
+                    System.out.println("Ask patient to pay Appointment fees: "+a1.d.get(doctorspecilist.get(i)).getAmt());
+                    LocalDateTime myDate=LocalDateTime.now();                                              //creating object to get the time of appointment registration
+                    DateTimeFormatter myformatobj=DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                    String fdat=myDate.format(myformatobj);
+                    System.out.println("Registration Completed Successfully on ***** "+fdat+" *****");
+                    System.out.println("Your Patient ID : "+patientID);
+                    System.out.println("------------------------------------------------------------------------------");
+                }
             }
             else{
                 System.out.println("Doctor Not available!!");                                           
